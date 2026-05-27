@@ -34,15 +34,10 @@ for (Transaction t : transactions) {
 //Use Iterator.remove() instead of list.remove().
 
 Iterator<Transaction> itr = transactions.iterator();
-
 while (itr.hasNext()) {
-
-    Transaction t = itr.next();
-
+  Transaction t = itr.next();
     if (t.isInvalid()) {
-
         itr.remove();
-
     }
 }
 
