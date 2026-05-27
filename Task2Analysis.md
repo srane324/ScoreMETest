@@ -22,22 +22,7 @@ for (Transaction t : transactions) {
     }
 }
 
-## 3. Provide the minimal code change (one or two lines) that resolves this safely.
+This error occurs because the collection is being modified directly
+while iterating over it.
 
-Use Iterator.remove() instead of modifying the collection directly.
 
-Correct fix:
-
-```java
-Iterator<Transaction> itr = transactions.iterator();
-
-while (itr.hasNext()) {
-
-    Transaction t = itr.next();
-
-    if (condition) {
-
-        itr.remove();
-
-    }
-}
