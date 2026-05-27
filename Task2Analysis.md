@@ -22,18 +22,22 @@ for (Transaction t : transactions) {
     }
 }
 
-## 3.Provide the minimal code change (one or two lines) that resolves this safely.
+## 3. Provide the minimal code change (one or two lines) that resolves this safely.
 
+Use Iterator.remove() instead of modifying the collection directly.
+
+Correct fix:
+
+```java
 Iterator<Transaction> itr = transactions.iterator();
 
 while (itr.hasNext()) {
+
     Transaction t = itr.next();
 
     if (condition) {
-        transactions.remove(t);
+
+        itr.remove();
+
     }
 }
-
-Use Iterator.remove() instead of modifying the collection directly.
-This safely removes elements during iteration without triggering
-ConcurrentModificationException.
